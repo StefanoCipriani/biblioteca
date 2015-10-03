@@ -9,6 +9,7 @@ import (
 
 var choiche int
 
+/*Biblioteca in formato testuale*/
 func menu() {
 	fmt.Println("\n1: Inserisci")
 	fmt.Println("2: Cerca")
