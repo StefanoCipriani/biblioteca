@@ -96,3 +96,23 @@ func ElencoLibri2() map[int]*types.Book {
 
 	return books
 }
+
+func CancellaLibro(titolo string) {
+	input, err := ioutil.ReadFile(dbPath)
+	if err != nil {
+		log.Fatalln(err)
+	}
+
+	lines := strings.Split(string(input), "\n")
+
+	for i, line := range lines {
+		if strings.Contains(line, titolo) {
+			lines[i] = ""
+		}
+	}
+	output := strings.Join(lines, "")
+	err = ioutil.WriteFile(dbPath, []byte(output), 0666)
+	if err != nil {
+		log.Fatalln(err)
+	}
+}

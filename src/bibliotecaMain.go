@@ -32,6 +32,7 @@ func menu() {
 			fmt.Println("Modifica")
 		case 4:
 			fmt.Println("Cancella")
+			cancella()
 		case 5:
 			fmt.Println("Elenco")
 			elencoMap()
@@ -109,4 +110,12 @@ func cerca() {
 		fmt.Println(booksV[i])
 	}
 
+}
+
+func cancella() {
+	var chiave string
+	fmt.Println("Titolo")
+	fmt.Scanf("\n%s", &chiave)
+	fmt.Println()
+	writefile.CancellaLibro(chiave + "#")
 }
